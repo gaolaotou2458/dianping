@@ -2,13 +2,17 @@ package com.imooc.dianping.controller.admin;
 
 import com.imooc.dianping.common.AdminPermission;
 import com.imooc.dianping.common.BusinessException;
+import com.imooc.dianping.common.CommonRes;
 import com.imooc.dianping.common.EmBusinessError;
+import com.imooc.dianping.mapper.UserMapper;
+import com.imooc.dianping.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.util.StringUtils;
 import sun.misc.BASE64Encoder;
@@ -28,15 +32,34 @@ public class AdminController {
     private String encrptyPassord;
 
     @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
     private HttpServletRequest httpServletRequest;
 
     public static final String CURRENT_ADMIN_SESSION = "currentAdminSession";
 
     @RequestMapping("/index")
+    //测试通过非text/html请求
+//    @AdminPermission(produceType = "application/json")
+//    @ResponseBody
+    //测试通过非text/html请求
     @AdminPermission
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView("/admin/admin/index");
+        User user = new User();
+        modelAndView.addObject("userCount",userMapper.selectCount(user));
+        modelAndView.addObject("CONTROLLER_NAME","admin");
+        modelAndView.addObject("ACTION_NAME","index");
         return  modelAndView;
+    }
+
+    //测试通过非text/html请求
+    @AdminPermission(produceType = "application/json")
+    @ResponseBody
+    @RequestMapping("/index1")
+    public CommonRes index1(){
+        return CommonRes.create(null);
     }
 
     @RequestMapping("/loginpage")
