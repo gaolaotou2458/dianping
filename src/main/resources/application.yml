@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      # MySQL 8.x: com.mysql.cj.jdbc.Driver  com.mysql.jdbc.Driver
+      driver-class-name: ${jdbc.driverClass}
+  resources:
+    #add-mappings=true 所有的controller 都没命中，则使用默认的静态资源处理器做匹配
+    add-mappings: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+    #接入前段静态资源页面
+    static-path-pattern: /static/**
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+
+
+mybatis:
+  type-aliases-package: com.imooc.dianping.model
+  mapper-locations: classpath:mapper/*.xml
+
+
