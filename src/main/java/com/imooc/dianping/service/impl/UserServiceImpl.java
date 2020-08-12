@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User register(User user) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException {
         user.setPassword(encodeByMd5(user.getPassword()));
-        user.setCreateAt(new Date());
+        user.setCreatedAt(new Date());
         user.setUpdatedAt(new Date());
         try {
             userMapper.insert(user);

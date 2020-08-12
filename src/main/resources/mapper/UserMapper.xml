@@ -6,7 +6,7 @@
       WARNING - @mbg.generated
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
     <result column="telphone" jdbcType="VARCHAR" property="telphone" />
     <result column="password" jdbcType="VARCHAR" property="password" />

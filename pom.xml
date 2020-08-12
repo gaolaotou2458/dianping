@@ -29,6 +29,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- 切面 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- 切面 -->
+
         <dependency>
              <groupId>org.projectlombok</groupId>
              <artifactId>lombok</artifactId>
@@ -67,6 +74,8 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <!--  thymeleaf -->
+
+
 
         <dependency>
             <groupId>mysql</groupId>

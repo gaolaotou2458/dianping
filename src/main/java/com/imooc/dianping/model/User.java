@@ -12,8 +12,8 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "create_at")
-    private Date createAt;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Column(name = "updated_at")
     private Date updatedAt;
@@ -44,15 +44,15 @@ public class User implements Serializable {
     /**
      * @return create_at
      */
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     /**
-     * @param createAt
+     * @param createdAt
      */
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     /**
