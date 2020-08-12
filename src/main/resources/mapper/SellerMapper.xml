@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.dianping.mapper.SellerMapper">
+  <resultMap id="BaseResultMap" type="com.imooc.dianping.model.Seller">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="remark_score" jdbcType="DECIMAL" property="remarkScore" />
+    <result column="disabled_flag" jdbcType="INTEGER" property="disabledFlag" />
+  </resultMap>
+</mapper>
