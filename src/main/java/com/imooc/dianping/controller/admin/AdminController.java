@@ -4,7 +4,13 @@ import com.imooc.dianping.common.AdminPermission;
 import com.imooc.dianping.common.BusinessException;
 import com.imooc.dianping.common.CommonRes;
 import com.imooc.dianping.common.EmBusinessError;
+import com.imooc.dianping.mapper.CategoryMapper;
+import com.imooc.dianping.mapper.SellerMapper;
+import com.imooc.dianping.mapper.ShopMapper;
 import com.imooc.dianping.mapper.UserMapper;
+import com.imooc.dianping.model.Category;
+import com.imooc.dianping.model.Seller;
+import com.imooc.dianping.model.Shop;
 import com.imooc.dianping.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +39,12 @@ public class AdminController {
 
     @Autowired
     private UserMapper userMapper;
-
+    @Autowired
+    private ShopMapper shopMapper;
+    @Autowired
+    private SellerMapper sellerMapper;
+    @Autowired
+    private CategoryMapper categoryMapper;
     @Autowired
     private HttpServletRequest httpServletRequest;
 
@@ -49,6 +60,9 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView("/admin/admin/index");
         User user = new User();
         modelAndView.addObject("userCount",userMapper.selectCount(user));
+        modelAndView.addObject("shopCount",shopMapper.selectCount(new Shop()));
+        modelAndView.addObject("categoryCount",categoryMapper.selectCount(new Category()));
+        modelAndView.addObject("sellerCount",sellerMapper.selectCount(new Seller()));
         modelAndView.addObject("CONTROLLER_NAME","admin");
         modelAndView.addObject("ACTION_NAME","index");
         return  modelAndView;

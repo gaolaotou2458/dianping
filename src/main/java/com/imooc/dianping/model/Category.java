@@ -14,7 +14,7 @@ public class Category {
 
     @Column(name = "updated_at")
     private Date updatedAt;
-
+    @Column(name = "name")
     private String name;
 
     @Column(name = "icon_url")

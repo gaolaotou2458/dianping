@@ -71,18 +71,20 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public List<Shop> selectAll() {
-        Example example = new Example(Category.class);
-        example.orderBy("id").asc();
-        List<Shop> shops = shopMapper.selectByExample(example);
-        return shops;
+        List<Shop> shopModelList = shopMapper.selectAll();
+        shopModelList.forEach(shopModel -> {
+            shopModel.setSeller(sellerMapper.selectByPrimaryKey(shopModel.getSellerId()));
+            shopModel.setCategory(categoryMapper.selectByPrimaryKey(shopModel.getCategoryId()));
+        });
+        return shopModelList;
     }
 
     @Override
     public List<Shop> recommend(BigDecimal longitude, BigDecimal latitude) {
         List<Shop> shopModelList = shopMapper.recommend(longitude, latitude);
         shopModelList.forEach(shopModel -> {
-            shopModel.setSellerModel(sellerMapper.selectByPrimaryKey(shopModel.getSellerId()));
-            shopModel.setCategoryModel(categoryMapper.selectByPrimaryKey(shopModel.getCategoryId()));
+            shopModel.setSeller(sellerMapper.selectByPrimaryKey(shopModel.getSellerId()));
+            shopModel.setCategory(categoryMapper.selectByPrimaryKey(shopModel.getCategoryId()));
         });
         return shopModelList;
     }
@@ -134,8 +136,8 @@ public class ShopServiceImpl implements ShopService {
 
         List<Shop> shopModelList = shopMapper.search(longitude,latitude,keyword,orderby,categoryId,tags);
         shopModelList.forEach(shopModel -> {
-            shopModel.setSellerModel(sellerMapper.selectByPrimaryKey(shopModel.getSellerId()));
-            shopModel.setCategoryModel(categoryMapper.selectByPrimaryKey(shopModel.getCategoryId()));
+            shopModel.setSeller(sellerMapper.selectByPrimaryKey(shopModel.getSellerId()));
+            shopModel.setCategory(categoryMapper.selectByPrimaryKey(shopModel.getCategoryId()));
         });
         return shopModelList;
     }

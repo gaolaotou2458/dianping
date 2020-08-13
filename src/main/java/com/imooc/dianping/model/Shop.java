@@ -1,10 +1,13 @@
 package com.imooc.dianping.model;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "dianpingdb.shop")
+@Data
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +19,7 @@ public class Shop {
     @Column(name = "updated_at")
     private Date updatedAt;
 
+    @Column(name = "name")
     private String name;
 
     @Column(name = "remark_score")
@@ -47,24 +51,24 @@ public class Shop {
     @Column(name = "icon_url")
     private String iconUrl;
 
-    private Category categoryModel;
+    private Category category;
 
-    private Seller sellerModel;
+    private Seller seller;
 
-    public Category getCategoryModel() {
-        return categoryModel;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryModel(Category categoryModel) {
-        this.categoryModel = categoryModel;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public Seller getSellerModel() {
-        return sellerModel;
+    public Seller getSeller() {
+        return seller;
     }
 
-    public void setSellerModel(Seller sellerModel) {
-        this.sellerModel = sellerModel;
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 
     /**
