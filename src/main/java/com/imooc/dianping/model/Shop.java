@@ -47,6 +47,26 @@ public class Shop {
     @Column(name = "icon_url")
     private String iconUrl;
 
+    private Category categoryModel;
+
+    private Seller sellerModel;
+
+    public Category getCategoryModel() {
+        return categoryModel;
+    }
+
+    public void setCategoryModel(Category categoryModel) {
+        this.categoryModel = categoryModel;
+    }
+
+    public Seller getSellerModel() {
+        return sellerModel;
+    }
+
+    public void setSellerModel(Seller sellerModel) {
+        this.sellerModel = sellerModel;
+    }
+
     /**
      * @return id
      */
