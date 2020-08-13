@@ -12,4 +12,11 @@ import java.util.List;
 public interface ShopMapper extends MyMapper<Shop> {
 
     List<Shop> recommend(@Param("longitude") BigDecimal longitude, @Param("latitude") BigDecimal latitude);
+
+    List<Shop> search(@Param("longitude") BigDecimal longitude,
+                           @Param("latitude") BigDecimal latitude,
+                           @Param("keyword")String keyword,
+                           @Param("orderby")Integer orderby,
+                           @Param("categoryId")Integer categoryId,
+                           @Param("tags")String tags);
 }
