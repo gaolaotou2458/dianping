@@ -29,7 +29,6 @@ mybatis:
 
 ## 彩色日志路径
 logging:
-  file:
     path: E:/nmyslog/colorlogs
     config: classpath:log/logback-spring.xml
 
