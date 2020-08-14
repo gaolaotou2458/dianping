@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface ShopMapper extends MyMapper<Shop> {
@@ -19,4 +20,9 @@ public interface ShopMapper extends MyMapper<Shop> {
                            @Param("orderby")Integer orderby,
                            @Param("categoryId")Integer categoryId,
                            @Param("tags")String tags);
+
+    List<Map<String,Object>> searchGroupByTags(@Param("keyword")String keyword,
+                                               @Param("categoryId")Integer categoryId,
+                                               @Param("tags")String tags);
+
 }

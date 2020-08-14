@@ -22,7 +22,7 @@ public interface ShopService {
 
     List<Shop> recommend(BigDecimal longitude,BigDecimal latitude);
 
-    List<Map<String,Integer>> searchGroupByTags(String keyword, Integer categoryId, String tags);
+    List<Map<String,Object>> searchGroupByTags(String keyword, Integer categoryId, String tags);
 
     Integer countAllShop();
 

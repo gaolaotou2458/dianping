@@ -90,8 +90,8 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public List<Map<String, Integer>> searchGroupByTags(String keyword, Integer categoryId, String tags) {
-        List<Map<String, Integer>> resultList = new ArrayList<>();
+    public List<Map<String, Object>> searchGroupByTags(String keyword, Integer categoryId, String tags) {
+        List<Map<String, Object>> resultList = new ArrayList<>();
         Map<String, Integer> map = new HashMap<>();
         Example example = new Example(Shop.class);
         Example.Criteria criteria = example.createCriteria();
@@ -100,7 +100,7 @@ public class ShopServiceImpl implements ShopService {
             searchKey = "%" + keyword + "%";
             criteria.andLike("name", searchKey);
         }
-        if(StringUtils.isNotEmpty(categoryId + "")){
+        if(categoryId != null){
             criteria.andEqualTo("categoryId", categoryId);
 
         }
@@ -115,13 +115,15 @@ public class ShopServiceImpl implements ShopService {
 
         //System.out.println(dateListMap);
         // 遍历map,求tag对应记录的条数
-        HashMap<String, Integer> resMap = new HashMap<>(128);
+
         for (Map.Entry<String, List<Shop>> detailEntry:dateListMap.entrySet()){
+            HashMap<String, Object> resMap = new HashMap<>(128);
             String tag = detailEntry.getKey();
             int daySize = detailEntry.getValue().size();
-            resMap.put(tag,daySize);
+            resMap.put("tags",tag);
+            resMap.put("num",daySize);
+            resultList.add(resMap);
         }
-        resultList.add(resMap);
         System.out.println(resultList);
         return resultList;
     }

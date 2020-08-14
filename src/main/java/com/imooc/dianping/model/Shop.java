@@ -55,6 +55,10 @@ public class Shop {
 
     private Seller seller;
 
+    //距离
+    @Column(name = "distance")
+    private Integer distance;
+
     public Category getCategory() {
         return category;
     }
@@ -69,6 +73,14 @@ public class Shop {
 
     public void setSeller(Seller seller) {
         this.seller = seller;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Integer distance) {
+        this.distance = distance;
     }
 
     /**

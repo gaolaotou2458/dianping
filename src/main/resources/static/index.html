@@ -304,6 +304,11 @@
             if(this.getStatus() == BMAP_STATUS_SUCCESS){
                 var longitude = r.point.lng;
                 var latitude = r.point.lat;
+                console.log(longitude + "||" + latitude);
+                if(!longitude) {
+                    longitude = 120.915855;
+                    latitude = 31.195341;
+                }
                 $("#longitude").val(longitude);
                 $("#latitude").val(latitude);
 
@@ -321,6 +326,8 @@
                                 }else{
                                     distanceStr = distance + " m";
                                 }
+                                console.log("distanceStr" + distanceStr)
+
                                 var content = $('<a href="" class="item Fix hightitem">'+
                                     '<div class="cnt">'+
                                     '<img class="pic" src="'+dataList[i].iconUrl+'"/>'+

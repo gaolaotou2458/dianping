@@ -57,7 +57,7 @@ public class ShopController {
 
         List<Shop> shopModelList = shopService.search(longitude,latitude,keyword,orderby,categoryId,tags);
         List<Category> categoryModelList = categoryService.selectAll();
-        List<Map<String,Integer>> tagsAggregation = shopService.searchGroupByTags(keyword,categoryId,tags);
+        List<Map<String,Object>> tagsAggregation = shopService.searchGroupByTags(keyword,categoryId,tags);
         Map<String,Object> resMap = new HashMap<>();
         resMap.put("shop",shopModelList);
         resMap.put("category",categoryModelList);
