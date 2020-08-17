@@ -55,7 +55,7 @@ public class Shop {
 
     private Seller seller;
 
-    //距离
+    //距离1
     @Column(name = "distance")
     private Integer distance;
 
