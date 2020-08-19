@@ -124,6 +124,7 @@ public class ShopServiceImpl implements ShopService {
             resMap.put("num",daySize);
             resultList.add(resMap);
         }
+        System.out.println(resultList);
         return resultList;
     }
 
