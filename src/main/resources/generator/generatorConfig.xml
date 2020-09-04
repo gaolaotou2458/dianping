@@ -38,7 +38,7 @@
                 type="XMLMAPPER"/>
 
         <!-- 配置需要指定生成的数据库和表，% 代表所有表 -->
-        <table catalog="dianpingdb" tableName="shop">
+        <table catalog="dianpingdb" tableName="sp_audit_db_log">
             <!-- mysql 配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>

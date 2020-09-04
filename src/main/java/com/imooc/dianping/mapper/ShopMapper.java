@@ -25,4 +25,8 @@ public interface ShopMapper extends MyMapper<Shop> {
                                                @Param("categoryId")Integer categoryId,
                                                @Param("tags")String tags);
 
+    Shop searchById(@Param("longitude") BigDecimal longitude,
+                    @Param("latitude") BigDecimal latitude,
+                    @Param("id") Integer id);
+
 }

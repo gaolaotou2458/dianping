@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.dianping.mapper.SpAuditDbLogMapper">
+  <resultMap id="BaseResultMap" type="com.imooc.dianping.model.SpAuditDbLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="IN_PARAM" jdbcType="VARCHAR" property="inParam" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="COST_TIME" jdbcType="BIGINT" property="costTime" />
+    <result column="RESUTL_TYPE" jdbcType="VARCHAR" property="resutlType" />
+    <result column="ERROR_CONTENT" jdbcType="VARCHAR" property="errorContent" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="SQL_CONTENT" jdbcType="LONGVARCHAR" property="sqlContent" />
+  </resultMap>
+</mapper>

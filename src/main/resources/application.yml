@@ -26,11 +26,16 @@ spring:
 mybatis:
   type-aliases-package: com.imooc.dianping.model
   mapper-locations: classpath:mapper/*.xml
+  #输出sql
+  #configuration:
+  #  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 ## 彩色日志路径
 logging:
   file:
     path: E:/nmyslog/colorlogs
     config: classpath:log/logback-spring.xml
+
+
 
 
