@@ -29,4 +29,9 @@ public interface ShopMapper extends MyMapper<Shop> {
                     @Param("latitude") BigDecimal latitude,
                     @Param("id") Integer id);
 
+    //这三个id的数据变更，就去重建跟它关联的索引
+    List<Map<String,Object>> buildESQuery(@Param("sellerId") Integer sellerId,
+                                          @Param("categoryId") Integer categoryId,
+                                          @Param("shopId") Integer shopId);
+
 }
